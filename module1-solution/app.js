@@ -9,16 +9,20 @@
 // function LunchCheckController($scope){
 //   $scope.CheckIt = function(){
 //     if(!$scope.lunchText){
-//       $scope.lunchMessage = "Please enter data first";
+//       $scope.lunchMessage = 'red';
+//       $scope.lMessage = "Please enter data first";
 //     }
 //     else{
-//      $scope.lunchMessage = "Enjoy!";
+//      $scope.lunchMessage = "green";
+//      $scope.lMessage = "Enjoy!";
 //       var str = $scope.lunchText;
-//       var ary = new Array();
+//       var arr = new Array();
 //
-//       ary = str.split(",");
-//       if(ary.length > 3){
-//         $scope.lunchMessage = "Too Much!";
+//       arr = str.split(",");
+//       arr = arr.filter(function(e){return /\S/.test(e)});  //Empty items ('' or ' ') will not be included in total count
+//
+//       if(arr.length > 3){
+//         $scope.lMessage = "Too Much!";
 //       }
 //     }
 //
@@ -26,5 +30,5 @@
 // }
 // })();
 
-// //  Minified Version:
-!function(){"use strtict";function e(e){e.CheckIt=function(){if(e.lunchText){e.lunchMessage="Enjoy!";var n=e.lunchText,c=new Array;c=n.split(","),c.length>3&&(e.lunchMessage="Too Much!")}else e.lunchMessage="Please enter data first"}}angular.module("LunchCheck",[]).controller("LunchCheckController",e),e.$inject=["$scope"]}();
+//  Minified Version:
+!function(){"use strtict";function e(e){e.CheckIt=function(){if(e.lunchText){e.lunchMessage="green",e.lMessage="Enjoy!";var n=e.lunchText;new Array;n.split(",").filter(function(e){return/\S/.test(e)}).length>3&&(e.lMessage="Too Much!")}else e.lunchMessage="red",e.lMessage="Please enter data first"}}angular.module("LunchCheck",[]).controller("LunchCheckController",e),e.$inject=["$scope"]}();

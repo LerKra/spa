@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
-      .message { font-size: 1.3em; font-weight: bold; }
+      .message {font-size: 1.3em; font-weight: bold;}
+      .red {color: red;
+            border-color: red;}
+      .green {color:green;
+              border-color: green;}
     </style>
   </head>
 <body>
@@ -15,14 +19,15 @@
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="lunchText">
+             class="form-control" ng-model="lunchText" ng-class="lunchMessage">
          </div>
+         <div class="form-group">Empty items ('' or ' ') will not be included in total count</div>
          <div class="form-group">
              <button class="btn btn-default" ng-model="lunchButton" ng-click="CheckIt()">Check If Too Much</button>
          </div>
-         <div class="form-group message" ng-model="lunchMessage">
+         <div class="form-group message" ng-model="lunchMessage" ng-class="lunchMessage">
            <!-- Your message can go here. -->
-           {{lunchMessage}}
+           {{lMessage}}
          </div>
    </div>
 <script src="angular.min.js"></script>
